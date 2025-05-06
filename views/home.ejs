@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Coding Mentor | Your Intelligent Programming Assistant</title>
+  <meta name="description" content="AI-powered coding assistant that helps you write, debug, optimize, and understand code with Gemini AI technology">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="home.css"/>
+  <style>
+    /* Team Section Styling */
+.team-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+  opacity: 0.6;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  font-weight: 800;
+}
+
+.team-section h2 span {
+  color: #4f46e5;
+  position: relative;
+}
+
+.team-section h2 span::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4f46e5, #a855f7);
+  border-radius: 3px;
+}
+
+.team-intro {
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.team-section-code {
+  background: #4f46e5;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.team-member {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.team-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #4f46e5, #a855f7);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.team-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #4f46e5, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.team-member p {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.team-icon {
+  animation: float 4s ease-in-out infinite;
+}
+
+.team-member:nth-child(2) .team-icon {
+  animation-delay: 0.5s;
+}
+
+.team-member:nth-child(3) .team-icon {
+  animation-delay: 1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .team-member {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .team-section h2 {
+    font-size: 2rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">
+      <img src="/logo.png" alt="AI Coding Mentor Logo">
+      <h2>AI Coding Mentor</h2>
+    </a>
+    <nav>
+      <a href="#features"><i class="fas fa-star"></i> Features</a>
+      <a href="#demo"><i class="fas fa-laptop-code"></i> Demo</a>
+      <a href="#pricing"><i class="fas fa-tag"></i> Pricing</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="/app" class="nav-cta"><i class="fas fa-rocket"></i> Launch App</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Supercharge Your Coding Skills with AI</h1>
+      <p>AI Coding Mentor leverages Gemini AI to help you write better code, understand complex concepts, and accelerate your learning journey.</p>
+      <div class="hero-buttons">
+        <a href="/app" class="cta"><i class="fas fa-bolt"></i> Start Coding Now</a>
+        <a href="#demo" class="cta cta-secondary"><i class="fas fa-play-circle"></i> Watch Demo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">10,000+</div>
+          <div class="stat-label">Developers Helped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Programming Languages</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-header">
+      <h2 class="section-title">Powerful Features</h2>
+      <p class="section-subtitle">Everything you need to become a better developer</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-magic"></i></div>
+        <h3>Code Refactoring</h3>
+        <p>Automatically improve your code structure, readability, and performance with AI-powered suggestions.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Code Explanation</h3>
+        <p>Get clear, concise explanations for any code snippet in plain English or your preferred language.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+        <h3>Smart Comments</h3>
+        <p>Automatically generate comprehensive comments and documentation for your codebase.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-microphone"></i></div>
+        <h3>Voice Coding</h3>
+        <p>Dictate your code ideas and watch them transform into working code snippets instantly.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bug"></i></div>
+        <h3>Debugging Assistant</h3>
+        <p>Identify and fix bugs faster with AI-powered error analysis and solution suggestions.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Learning Paths</h3>
+        <p>Personalized learning recommendations based on your skill level and coding goals.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="demo-container">
+      <div class="demo-content">
+        <span class="demo-badge">Live Demo</span>
+        <h2 class="demo-title">See AI Coding Mentor in Action</h2>
+        <p class="demo-text">Watch how our AI assistant can transform your coding workflow and help you learn faster.</p>
+        <ul class="demo-list">
+          <li>Real-time code analysis and suggestions</li>
+          <li>Interactive explanations for any code concept</li>
+          <li>Multi-language support with contextual help</li>
+          <li>Seamless integration with your workflow</li>
+        </ul>
+        <a href="/app" class="cta"><i class="fas fa-play"></i> Try Live Demo</a>
+      </div>
+      <div class="demo-image">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI Coding Mentor Interface">
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="testimonials-container">
+      <div class="section
+            <div class="section-header">
+        <h2 class="section-title">What Developers Say</h2>
+        <p class="section-subtitle">Trusted by developers from startups to Fortune 500 companies</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">AI Coding Mentor has completely transformed how I learn new programming concepts. The explanations are so clear it's like having a senior developer looking over my shoulder.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-avatar">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Full Stack Developer, TechCorp</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">The code refactoring suggestions have helped me improve my code quality significantly. It's like having an automated code review available 24/7.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-avatar">
+            <div class="author-info">
+              <h4>Michael Chen</h4>
+              <p>Lead Engineer, StartupX</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">As a coding bootcamp instructor, I recommend this tool to all my students. It accelerates their learning curve like nothing else I've seen.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="David Rodriguez" class="author-avatar">
+            <div class="author-info">
+              <h4>David Rodriguez</h4>
+              <p>Instructor, Code Academy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="pricing-container">
+      <div class="section-header">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-subtitle">Choose the plan that fits your needs</p>
+      </div>
+      <div class="pricing-tabs">
+        <button class="pricing-tab active">Monthly</button>
+        <button class="pricing-tab">Yearly (Save 20%)</button>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3 class="pricing-name">Starter</h3>
+          <div class="pricing-price">$9<span class="pricing-period">/month</span></div>
+          <ul class="pricing-features">
+            <li>100 code analysis sessions/month</li>
+            <li>Basic code explanations</li>
+            <li>5 refactoring suggestions/day</li>
+            <li>Email support</li>
+            <li>3 programming languages</li>
+          </ul>
+          <a href="/signup?plan=starter" class="cta cta-secondary">Get Started</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3 class="pricing-name">Developer</h3>
+          <div class="pricing-price">$29<span class="pricing-period">/month</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited code analysis</li>
+            <li>Advanced explanations</li>
+            <li>Unlimited refactoring</li>
+            <li>Priority support</li>
+            <li>All programming languages</li>
+            <li>Voice coding</li>
+          </ul>
+          <a href="/signup?plan=developer" class="cta">Get Developer</a>
+        </div>
+        <div class="pricing-card">
+          <h3 class="pricing-name">Team</h3>
+          <div class="pricing-price">$99<span class="pricing-period">/month</span></div>
+          <ul class="pricing-features">
+            <li>Everything in Developer</li>
+            <li>Up to 5 team members</li>
+            <li>Shared code knowledge base</li>
+            <li>Team analytics dashboard</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="/contact" class="cta cta-secondary">Contact Sales</a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem; color: var(--text-gray);">Need a custom plan? <a href="#contact" style="color: var(--primary);">Contact us</a> for enterprise solutions.</p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-container">
+      <div class="section-header">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Find answers to common questions about AI Coding Mentor</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What programming languages does AI Coding Mentor support?</div>
+        <div class="faq-answer">
+          <p>AI Coding Mentor supports over 25 programming languages including JavaScript, Python, Java, C++, C#, Go, Ruby, PHP, Swift, Kotlin, Rust, and more. We're constantly adding support for new languages based on developer demand.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does AI Coding Mentor differ from other AI coding assistants?</div>
+        <div class="faq-answer">
+          <p>Unlike generic AI coding tools, AI Coding Mentor is specifically designed for learning and improvement. We focus on explaining concepts clearly, providing educational context, and suggesting improvements that help you grow as a developer, not just write code faster.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is my code secure when using AI Coding Mentor?</div>
+        <div class="faq-answer">
+          <p>Absolutely. We take security seriously. Your code is processed securely and never stored longer than necessary to provide our services. For enterprise customers, we offer on-premises deployment options.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I use AI Coding Mentor in my IDE?</div>
+        <div class="faq-answer">
+          <p>Yes! We offer plugins for VS Code, IntelliJ, and other popular IDEs. You can also use our web interface or API to integrate with your development workflow.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do you offer discounts for students or educators?</div>
+        <div class="faq-answer">
+          <p>Yes, we offer 50% discounts for verified students and educators. Contact our support team with proof of your academic status to get your discount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have questions or want to learn more? Reach out to our team.</p>
+        
+        <div class="contact-method">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-details">
+            <h3>Email Us</h3>
+            <a href="mailto:support@aicodingmentor.com">support@aicodingmentor.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-details">
+            <h3>Call Us</h3>
+            <a href="tel:+18005551234">+91 7643929550</a>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-details">
+            <h3>Visit Us</h3>
+            <p>Lovely Professional University Phagwara, Punjab</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form action="/contact" method="POST">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" name="name" class="input-field" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="input-field" required>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="input-field" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="input-field" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="team-section">
+    <div class="team-container">
+      <h2>🚀 Meet the Team Behind <span>AI Coding Mentor</span></h2>
+      <p class="team-intro">A passionate group of developers committed to enhancing coding education with AI.</p>
+      <p class="team-section-code">Section: <strong>K23SB</strong></p>
+  
+      <div class="team-members">
+        <div class="team-member">
+          <div class="team-icon">👨‍💻</div>
+          <h3>Nitin Kumar Singh</h3>
+          <p>ID: 12306258</p>
+        </div>
+        <div class="team-member">
+          <div class="team-icon">👨‍💻</div>
+          <h3>Akshat Paul</h3>
+          <p>ID: 12306541</p>
+        </div>
+        <div class="team-member">
+          <div class="team-icon">👨‍💻</div>
+          <h3>Sumehar Singh Grewal</h3>
+          <p>ID: 12303725</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="/logo.png" alt="AI Coding Mentor">
+          <h3>AI Coding Mentor</h3>
+        </div>
+        <p>Empowering developers worldwide with AI-powered coding assistance and education since 2023.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+          <li><a href="#demo"><i class="fas fa-chevron-right"></i> Demo</a></li>
+          <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+          <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          <li><a href="/blog"><i class="fas fa-chevron-right"></i> Blog</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/docs"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+          <li><a href="/tutorials"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+          <li><a href="/community"><i class="fas fa-chevron-right"></i> Community</a></li>
+          <li><a href="/status"><i class="fas fa-chevron-right"></i> System Status</a></li>
+          <li><a href="/changelog"><i class="fas fa-chevron-right"></i> Changelog</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Subscribe to get updates on new features and coding tips.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <p>We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+  
+    <div class="footer-bottom">
+      <p>© 2023 AI Coding Mentor. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/cookies">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Intersection Observer for animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateElements = document.querySelectorAll('.feature-card, .testimonial-card, .pricing-card, .faq-item');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      animateElements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // FAQ toggle functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+
+      // Pricing tabs
+      const pricingTabs = document.querySelectorAll('.pricing-tab');
+      pricingTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          pricingTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          // Here you would typically switch pricing data between monthly/yearly
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+
+    // Simple form submission handler (would be replaced with actual form handling)
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // In a real implementation, you would send the form data to your server
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+      });
+    });
+  </script>
+</body>
+</html>

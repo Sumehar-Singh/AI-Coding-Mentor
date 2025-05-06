@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Coding Mentor</title>
+  <link href="/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero-section">
+      <button class="toggle-dark-mode" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">🌙</button>
+      <div class="hero-title">
+        <img src="/logo.png" alt="Gemini Logo" class="logo" />
+        <h1>AI Coding Mentor</h1>
+      </div>
+      <p class="subtitle">Elevate your code with intelligent insights powered by <strong>Gemini AI</strong>.</p>
+    </header>
+
+    <main class="main-content">
+      <form method="POST" action="/" class="form-box">
+        <label for="code">Paste your code:</label>
+        <textarea name="code" id="code" rows="12" placeholder="Enter your code here..."><%= code %></textarea>
+
+        <div class="controls">
+          <div class="select-mode">
+            <label for="mode">Choose Mode:</label>
+            <select name="mode" id="mode">
+              <option value="improve" <%= mode === 'improve' ? 'selected' : '' %>>✨ Improve Code</option>
+              <option value="explain" <%= mode === 'explain' ? 'selected' : '' %>>💡 Explain Code</option>
+              <option value="comment" <%= mode === 'comment' ? 'selected' : '' %>>📝 Inline Comments</option>
+            </select>
+          </div>
+
+          <div class="action-buttons">
+            <button type="submit" id="submit-btn" class="primary-btn">🚀 Get AI Insights</button>
+            <button type="button" onclick="clearForm()" class="secondary-btn">🧹 Clear</button>
+            <button type="button" onclick="speakCode()" class="voice-btn">🎙️ Voice</button>
+          </div>
+        </div>
+      </form>
+
+      <% if (language || suggestions) { %>
+        <section class="output-section">
+          <% if (language) { %>
+            <p class="detected-lang">🧠 Detected Language: <strong><%= language %></strong></p>
+          <% } %>
+
+          <% if (suggestions) { %>
+            <div class="suggestions-box">
+              <div class="output-header">
+                <h2>🔍 AI Suggestions</h2>
+                <button id="copy-btn" class="copy-btn" aria-label="Copy Suggestions">📋 Copy</button>
+              </div>
+              <pre><code id="ai-suggestions" class="language-<%= language.toLowerCase() %>"><%= suggestions %></code></pre>
+              <button onclick="downloadSuggestions()" class="download-btn">⬇️ Download as TXT</button>
+            </div>
+          <% } %>
+        </section>
+      <% } %>
+
+      <% if (error) { %>
+        <div class="error-msg" role="alert"><%= error %></div>
+      <% } %>
+
+      <div id="loading" class="loading-spinner hidden">⏳ Loading...</div>
+    </main>
+  </div>
+
+  <script src="/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const copyBtn = document.getElementById('copy-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const text = document.getElementById('ai-suggestions').innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            copyBtn.textContent = '✅ Copied!';
+            setTimeout(() => (copyBtn.textContent = '📋 Copy'), 2000);
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
